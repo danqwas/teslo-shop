@@ -23,9 +23,7 @@ import { MessageWsModule } from './message-ws/message-ws.module';
       autoLoadEntities: true,
       synchronize: true,
     }),
-    ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'public'),
-    }),
+
     ProductsModule,
     CommonModule,
     SeedModule,
