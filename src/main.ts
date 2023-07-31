@@ -9,6 +9,7 @@ async function bootstrap() {
   const logger = new Logger('Bootstrap');
 
   app.setGlobalPrefix('api');
+  //update
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
@@ -23,12 +24,12 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
- app.enableCors({
+  app.enableCors({
     origin: process.env.FRONTEND_URL,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
   });
- 
+
   await app.listen(process.env.PORT || 3000);
   logger.log(`Application is running on port: ${process.env.PORT}`);
 }
